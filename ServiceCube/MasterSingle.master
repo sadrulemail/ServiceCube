@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterSingle.master.cs" Inherits="MasterSingle" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trust Single Page</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/font-awesome/4.5.0/css/font-awesome.min.css' type="text/css">
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/ionicons/2.0.1/css/ionicons.min.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/iCheck/square/green.css'>
+    <link rel="stylesheet" href="dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-green.css">
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/CSS/common.css'>
+    <link href="dist/css/tbl.css" rel="stylesheet" />
+
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/jQuery/jQuery-2.1.4.min.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/jQueryUI/jquery-ui.min.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/iCheck/icheck.min.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/jAlert/jquery.alerts.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/timeago/1.4.3/jquery.timeago.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/script/jquery.filter_input.js'></script>
+    <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/script/jquery.multiple.select.js'></script>
+    <script src="<%= ConfigurationManager.AppSettings["CDN"] %>/script/TrustClick.js"></script>
+    
+<script src="dist/js/app.js"></script>
+<script src="dist/js/TrustBank.js"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/html5shiv/3.7.3/html5shiv.min.js'></script>
+        <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/respond/1.4.2/respond.min.js'></script>
+    <![endif]-->
+<asp:contentplaceholder runat="server" id="cphTitle">
+</asp:contentplaceholder>
+<body class="hold-transition login-page">
+   
+    <div class="navbar">
+        <div class="app-title text-shadow" style="background: #8faa4a">
+            <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%">
+                <tr>
+                    <td valign="middle">
+                        <asp:HyperLink runat="server" ID="ApplicationLogo" CssClass="applogo" ImageUrl="~/Images/NoFace.jpg">
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="ApplicationName" runat="server" CssClass="app-title"></asp:HyperLink>
+                    </td>
+                    <td style="font-size:80%;text-align:right">
+                        <asp:Literal ID="BranchName" runat="server" Text=""></asp:Literal></td>
+                </tr>
+            </table>
+        </div>
+    </div>        
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <asp:ContentPlaceHolder runat="server" ID="cphBody">
+        </asp:ContentPlaceHolder>        
+        <asp:ContentPlaceHolder runat="server" ID="cphFooter">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

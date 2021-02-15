@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Menu" url="" roles="*">
+    <siteMapNode url="" title="Menu" description="" roles="*">
+      <siteMapNode url="Default.aspx" title="Home Page" description="" roles="*" />
+    </siteMapNode>
+    <siteMapNode url="" title="Ticket" description="" roles="ADMIN,USER" >
+      <siteMapNode url="NewTicket.aspx" title="Open New" description="" roles="ADMIN,USER" />
+      <siteMapNode url="Ticket.aspx" title="Goto Ticket" description="" roles="ADMIN,USER" />
+      <siteMapNode url="Ticket_Inbox.aspx" title="Ticket Inbox" description="" roles="ADMIN,USER" />
+      <siteMapNode url="Ticket_Browse.aspx" title="Browse Tickets" description="" roles="ADMIN"  branch="1" />
+      <siteMapNode url="Ticket_Browse_Br.aspx" title="Browse Tickets (Branch)" description="" roles="USER" branch="-1" />      
+      <siteMapNode url="MyCreateTicket.aspx" title="Me &amp; My Branch Ticket" description="" roles="ADMIN,USER" />
+    </siteMapNode>    
+    
+    
+    <siteMapNode url="" title="Call Info" description="" roles="ADMIN,CALLCENTER" >
+      <siteMapNode url="Call_New.aspx" title="Call Details" description="" roles="ADMIN,CALLCENTER" />
+      <siteMapNode url="Call_Details.aspx" title="Browse All" description="" roles="ADMIN,CALLCENTER" />
+    </siteMapNode>
+
+
+    <siteMapNode url="" title="Admin" description="" roles="ADMIN">
+      <siteMapNode url="App_Users.aspx" title="App Users" description="" roles="ADMIN" />
+    </siteMapNode>
+    <siteMapNode url="" title="Profile" description="" roles="*">
+      <siteMapNode url="PasswordChange.aspx" title="Change Password" description="" roles="*" target="_blank"  />
+      <siteMapNode url="LogOut.aspx" title="Logout" description="" roles="*" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

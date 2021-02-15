@@ -1,0 +1,252 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterLTE.master.cs" Inherits="MasterLTE" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/jQueryUI/1.11.4/jquery-ui.min.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/ionicons/2.0.1/css/ionicons.min.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/Lightbox/jquery.lightbox-0.5.css'>
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/jAlert/jquery.alerts.css'>    
+    <link rel='stylesheet' href='<%= ConfigurationManager.AppSettings["CDN"] %>/CSS/multiple-select.css'>
+
+    <link rel="stylesheet" href="dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-green.css">
+    <link rel="stylesheet" href='<%= ConfigurationManager.AppSettings["CDN"] %>/CSS/common.css'>
+    <link href="dist/css/StyleSheet.css" rel="stylesheet" />
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/html5shiv/3.7.3/html5shiv.min.js'></script>
+        <script src='<%= ConfigurationManager.AppSettings["CDN"] %>/respond/1.4.2/respond.min.js'></script>
+    <![endif]-->
+<!-- ./wrapper -->
+<!-- REQUIRED JS SCRIPTS -->
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/jQuery/jQuery-2.1.4.min.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/slimScroll/jquery.slimscroll.min.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/TimeAgo/1.4.3/jquery.timeago.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/script/jquery.filter_input.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/script/multiple-select.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/jQueryUI/1.11.4/jquery-ui.min.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/jAlert/jquery.alerts.js'></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/script/jquery.autosize-min.js' type="text/javascript"></script>
+<script src='<%= ConfigurationManager.AppSettings["CDN"] %>/Lightbox/jquery.lightbox.min.js' type="text/javascript"></script>
+<script src="<%= ConfigurationManager.AppSettings["CDN"] %>/script/TrustClick.js?rand=1"></script>
+<!-- AdminLTE App -->
+    <script src="dist/js/app.js"></script>
+    <script src="dist/js/TrustBank.js?rand=1"></script>
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+    Both of these plugins are recommended to enhance the
+    user experience. Slimscroll is required when using the
+    fixed layout. -->
+<asp:contentplaceholder id="cphHead" runat="server">
+    Page Header
+</asp:contentplaceholder>
+<body class="hold-transition skin-green sidebar-mini fixed sidebar-collapse">
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <div class="wrapper">
+            <!-- Main Header -->
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="Default.aspx" class="logo hidden-xs">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini">
+                        <asp:Image runat="server" ID="ApplicationLogo" Width="32" Height="32"></asp:Image></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg">Menu</span>
+                </a>
+                <!-- Header Navbar -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="col-md-5 col-lg-6 app-title hidden-xs hidden-sm text-shadow">
+
+                        <asp:HyperLink ID="ApplicationName" runat="server"></asp:HyperLink>
+                    </div>
+                    <!-- search form (Optional) -->
+                    <%--<div action="#" method="get" class="col-md-3 col-xs-8 search-box">
+                        <div class="input-group">
+                            
+                            <span class="input-group-btn">
+                                <button type="button" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>--%>
+
+                    <!-- Navbar Right Menu -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">                            
+                            <li class="hidden-xs">
+                                <input type="text" id="searchkey" class="form-control intra-search-box" placeholder="search employee, branch, apps" style="width: 300px; margin-top: 7px" onfocus="this.select()">
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <!-- Menu Toggle Button -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <!-- The user image in the navbar-->
+                                    <asp:Image ID="EmpImage" runat="server" ImageUrl="~/Images/NoFace.jpg" CssClass="user-image" alt="User Image"></asp:Image>
+
+                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                    <span class="hidden-xs text-bold text-shadow">
+                                        <asp:Literal ID="EmpID" runat="server"></asp:Literal></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="user-roles">
+                                        <div class="col-xs-12 text-right">
+                                            <asp:Literal ID="EmpRole" runat="server"
+                                                Text="EmpRole"></asp:Literal>
+                                        </div>
+                                    </li>
+                                    <!-- The user image in the menu -->
+                                    <li class="user-header">
+                                        <asp:Image ID="EmpImageBig" runat="server" ImageUrl="~/Images/NoFace.jpg" CssClass="img-circle" alt="User Image"></asp:Image>
+                                        <p>
+                                            <asp:Literal ID="EmpName" runat="server"
+                                                Text="UserName"></asp:Literal>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    
+                                    <li class="user-body">
+                                        <div class="col-xs-6 text-center">
+                                            <a href='<%= ConfigurationManager.AppSettings["HOME"] %>/LoginLog.aspx' target="_blank">Login Log</a>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <a href="PasswordChange.aspx">Password</a>
+                                        </div>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href='<%= ConfigurationManager.AppSettings["HOME"] %>/Profile.aspx' target="_blank" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="Logout.aspx" class="btn btn-default btn-flat">Sign out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false"
+                        EnableViewState="False" />
+                    <asp:Repeater runat="server" ID="menu" DataSourceID="SiteMapDataSource1">
+                        <ItemTemplate>
+                            <li class='treeview <%# getMenuActive(Container.DataItem) %> <%# getMenuClass(Container.DataItem) %>'>
+                                <a <%# (Eval("Url").ToString() == "" ? "class='' href='#'" : Eval("Url","href='{0}'")) %>>
+                                    <i class='fa fa-<%# getNodeValue(Container.DataItem,"icon") %>'></i><span><%# Eval("Title") %></span>
+                                    <%# (Eval("Url").ToString() == "" ? "<i class='fa fa-angle-left pull-right'></i>" : "") %>
+                                </a>
+                                <asp:Repeater runat="server"
+                                    DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                                    <HeaderTemplate>
+                                        <ul class="treeview-menu">
+                                    </HeaderTemplate>
+
+                                    <ItemTemplate>
+                                        <li class='<%# getMenuClass(Container.DataItem) %>'>
+                                            <a <%# (Eval("Url").ToString() == "" ? "" : Eval("Url","href='{0}'")) %>
+                                                target='<%# getNodeValue(Container.DataItem,"target") %>'>
+                                                <%# Eval("Title") %>
+                                            </a>
+                                        </li>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </ul>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+                            </li>
+                        </ItemTemplate>
+                        <HeaderTemplate>
+                            <ul class="sidebar-menu">
+                        </HeaderTemplate>
+                        <FooterTemplate>
+                            </ul>
+                        </FooterTemplate>
+                    </asp:Repeater>
+
+                    <!-- /.search form -->
+                    <!-- Sidebar Menu -->
+                    <%--<ul class="sidebar-menu">
+                        <li class="header">MAIN MENU</li>
+                        <!-- Optionally, you can add icons to the links -->
+                        <li class="active"><a href="#"><i class="fa fa-th"></i><span>Link</span></a></li>
+                        <li><a href="#"><i class="fa fa-link"></i><span>Another Link</span></a></li>
+                        <li class="active treeview">
+                            <a href="#">
+                                <i class="fa fa-link"></i>
+                                <span>Multilevel</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">Link in level 2</a></li>
+                                <li><a href="#">Link in level 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>--%>
+                    <!-- /.sidebar-menu -->
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        <asp:ContentPlaceHolder ID="cphTitle" runat="server">
+                            Page Header
+                        </asp:ContentPlaceHolder>
+                        <small>
+                            <asp:ContentPlaceHolder ID="cphDescription" runat="server">
+                                Optional description
+                            </asp:ContentPlaceHolder>
+                        </small>
+                    </h1>
+                    <!--<ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                    <li class="active">Here</li>
+                </ol>-->
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Your Page Content Here -->
+                    <asp:Label ID="Literal1" runat="server" Text=""></asp:Label>
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server">
+                        Page Body
+                    </asp:ContentPlaceHolder>
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <!-- Main Footer -->
+            <footer class="main-footer">
+                <!-- To the right -->
+                <div class="pull-right hidden-xs">
+                </div>
+                <!-- Default to the left -->
+                <strong>Copyright &copy; 2015 Trust Bank Limited.</strong> All rights reserved.
+            </footer>
+            
+            <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+        </div>
+    </form>
+</body>
+</html>
